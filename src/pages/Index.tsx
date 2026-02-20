@@ -27,17 +27,17 @@ const Index = () => {
       delay: 0.5 // Wait for loader
     });
 
-    // Services Stagger
+    // Services Stagger - Smooth & Fast
     gsap.from(".service-card", {
       scrollTrigger: {
         trigger: ".services-section",
-        start: "top 80%",
+        start: "top 75%",
       },
-      y: 50,
+      y: 30,
       opacity: 0,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: "power2.out",
+      duration: 0.5,
+      stagger: 0.12,
+      ease: "power3.out",
     });
 
   }, { scope: containerRef });

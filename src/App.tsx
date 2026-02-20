@@ -7,8 +7,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Layout } from "@/components/layout/Layout";
 import Index from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
-
-// Placeholder imports for pages I'm about to create
 import About from "@/pages/About";
 import Services from "@/pages/Services";
 import Fencing from "@/pages/services/Fencing";
