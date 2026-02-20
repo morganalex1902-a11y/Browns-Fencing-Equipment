@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -8,6 +8,7 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +23,18 @@ export const Navbar = () => {
     setIsOpen(false);
   }, [location]);
 
+  // Close mobile menu on outside click
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
+
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
@@ -34,6 +47,7 @@ export const Navbar = () => {
 
   return (
     <nav
+      ref={navRef}
       className={cn(
         "sticky top-0 z-40 w-full transition-all duration-300 border-b border-transparent",
         scrolled ? "bg-white/80 backdrop-blur-md shadow-sm border-white/20 py-2" : "bg-transparent py-4"
@@ -93,28 +107,35 @@ export const Navbar = () => {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "fixed inset-0 top-[60px] bg-background/95 backdrop-blur-xl z-30 lg:hidden transition-transform duration-300 ease-in-out flex flex-col pt-8 px-6 gap-6 overflow-y-auto",
+          "fixed left-0 right-0 top-0 h-screen bg-background z-30 lg:hidden transition-transform duration-300 ease-in-out",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
+        style={{ marginTop: scrolled ? "40px" : "52px" }}
       >
-        {navLinks.map((link) => (
-          <Link
-            key={link.name}
-            to={link.path}
-            className={cn(
-              "text-lg font-medium border-b border-border/50 pb-4",
-              location.pathname === link.path ? "text-secondary" : "text-foreground"
-            )}
-          >
-            {link.name}
-          </Link>
-        ))}
-        <Link
-          to="/contact"
-          className="bg-secondary text-secondary-foreground text-center py-3 rounded-md font-bold mt-4 shadow-md"
-        >
-          Get a Quote Today
-        </Link>
+        <div className="flex flex-col h-full">
+          <div className="overflow-y-auto flex-1 px-4 pt-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={cn(
+                  "block text-lg font-medium border-b border-border/50 py-4 transition-colors",
+                  location.pathname === link.path ? "text-secondary font-bold" : "text-foreground hover:text-secondary"
+                )}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+          <div className="px-4 py-6 border-t border-border/50">
+            <Link
+              to="/contact"
+              className="block bg-secondary text-secondary-foreground text-center py-3 rounded-md font-bold shadow-md hover:bg-secondary/90 transition-colors"
+            >
+              Get a Quote Today
+            </Link>
+          </div>
+        </div>
       </div>
     </nav>
   );
