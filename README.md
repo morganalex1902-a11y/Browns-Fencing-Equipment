@@ -1,73 +1,98 @@
-# Welcome to your Lovable project
+# Browns' Fencing & Equipment
 
-## Project info
+Professional fencing, mulching, skid steer & tractor services in Fairmount, Georgia.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## About
 
-## How can I edit this code?
+Browns' Fencing & Equipment is a family-owned business specializing in rural property improvements. We provide:
 
-There are several ways of editing your application.
+- **Farm & Residential Fencing** - Durable fencing solutions built for Georgia's terrain
+- **Forestry Mulching & Land Clearing** - Professional overgrowth removal and lot clearing
+- **Skid Steer & Tractor Services** - Grading, driveway prep, and heavy equipment work
 
-**Use Lovable**
+Serving Fairmount, Pickens County, Gordon County, and Bartow County in North Georgia.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Contact
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Phone:** 706-847-5979
+- **Email:** brownsfencingnequip@gmail.com
+- **Location:** Fairmount, GA 30139
 
-**Use your preferred IDE**
+## Website
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+This is the official website for Browns' Fencing & Equipment, built with React, TypeScript, Vite, and Tailwind CSS.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Technology Stack
 
-Follow these steps:
+- **Frontend Framework:** React 18 with TypeScript
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS with custom configuration
+- **Component Library:** Shadcn/ui (Radix UI)
+- **Animations:** GSAP with ScrollTrigger
+- **Routing:** React Router v6
+- **Forms:** React Hook Form with Zod validation
+- **State Management:** TanStack React Query
+- **SEO:** React Helmet Async
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Key Features
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- Fully responsive mobile-first design
+- Server-side rendering fallback for SPA routing (historyApiFallback)
+- Smooth scroll-triggered animations
+- Accessible components with ARIA labels
+- SEO-optimized with Open Graph and Twitter Card support
+- JSON-LD schema markup for local business
+- Production-ready build with optimized code splitting
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Development
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Run tests
+npm test
 ```
 
-**Edit a file directly in GitHub**
+### Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The site is configured for deployment to:
 
-**Use GitHub Codespaces**
+- **Netlify:** Uses `_redirects` file for SPA fallback routing
+- **Vercel:** Uses `vercel.json` for SPA fallback routing
+- **Custom servers:** Configure with `historyApiFallback: true` in your server
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── pages/              # Page components (Home, About, Services, etc.)
+├── components/         # Reusable UI components
+│   ├── layout/        # Navigation, Footer, Layout wrapper
+│   └── ui/            # Shadcn/ui components
+├── hooks/             # Custom React hooks
+├── lib/               # Utility functions
+├── assets/            # Images and static assets
+├── App.tsx            # Root app component with routing
+└── index.css          # Tailwind base styles
+```
 
-This project is built with:
+### Performance
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Code splitting by vendor, UI components, and animations
+- Lazy loading of images
+- Optimized bundle size (gzip ~250KB)
+- Fast initial page load with streaming SSR-ready structure
 
-## How can I deploy this project?
+### License
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2026 Browns' Fencing & Equipment. All rights reserved.

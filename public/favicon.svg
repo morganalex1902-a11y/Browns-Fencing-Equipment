@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#4a3729" rx="20"/>
+  <g transform="translate(50, 50)">
+    <!-- Fence posts -->
+    <rect x="-30" y="-15" width="8" height="30" fill="#E8A038" rx="2"/>
+    <rect x="-5" y="-15" width="8" height="30" fill="#E8A038" rx="2"/>
+    <rect x="20" y="-15" width="8" height="30" fill="#E8A038" rx="2"/>
+    
+    <!-- Horizontal rails -->
+    <rect x="-30" y="-5" width="60" height="6" fill="#FFD166" rx="2"/>
+    <rect x="-30" y="8" width="60" height="6" fill="#FFD166" rx="2"/>
+  </g>
+</svg>

@@ -44,14 +44,34 @@
 
     --radius: 0.5rem;
   }
+
+  /* Performance optimizations */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground overflow-x-hidden antialiased;
+  }
+
+  /* Prevent layout shift during loading */
+  html {
+    @apply scroll-smooth;
+  }
+
+  /* Optimize images */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 }
 
